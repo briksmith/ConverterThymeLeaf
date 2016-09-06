@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="htt://www.thymeleaf.org">>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-<title>Insert title here</title>
+<title>Brian's Converter</title>
 </head>
 <body>
 <h1>Welcome to Brian's Converter</h1>
-	<form	th:action="@{/runConversion}">
-	
-	
+	<form th:action="@{/runConversion}">
+		Units to convert from: <select name="unitsToConvertFrom}">
+		
+		</select>
+		<br></br>
 		<input type="submit" value="Convert"/>
 	</form>
 </body>
