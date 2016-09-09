@@ -7,14 +7,14 @@
 <body>
 <h1>Welcome to Brian's Converter</h1>
 	<form th:action="@{/runConversion}">
-		Units to convert from: <input type="number" name="unitsToConvertFrom"/>
+		Units to convert from: <input type="number" name="numberOfUnitsToConvertFrom"/>
 		 <select name="listOfUnitsToConvertFrom">
-			<option value="inches">inches</option>
-			<option value="feet">feet</option>
+			<option value="Inches">inches</option>
+			<option value="Feet">feet</option>
 		</select>
 		Units to convert to: <select name="listOfUnitsToConvertTo">
-			<option value="inches">inches</option>
-			<option value="feet">feet</option>
+			<option value="Inches">inches</option>
+			<option value="Feet">feet</option>
 			</select>
 		Result: <th th:text="${result}"/>
 		<br></br>

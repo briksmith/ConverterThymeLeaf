@@ -2,13 +2,15 @@ package model;
 
 public enum LengthUnits
 {
-	Inches(12), Feet(3), Yards(2), NotAUnit(1);
-	private LengthUnits(int inNumberOfNextUnit)
+	Inches(12, 1), Feet(3, 12), Yards(1,3), NotAUnit(1,1);
+	private LengthUnits(int inNumberOfNextUnit, int inNumberOfPreviousUnit)
 	{
 		numberOfNextUnit = inNumberOfNextUnit;
+		numberOfPreviousUnit = inNumberOfPreviousUnit;
 	}
 
 	private int numberOfNextUnit;
+	private int numberOfPreviousUnit;
 	private static UnitType unitType = UnitType.length;
 
 	public int getNumberOfNextUnit()
@@ -30,13 +32,13 @@ public enum LengthUnits
 		LengthUnits[] values = LengthUnits.values();
 		double originalValue = fromUnit.getNumber();
 		int index = fromUnitEnum.ordinal();
-		for (int i = 0; i < steps ; i++)
+		for (int i = 0; i < Math.abs(steps) ; i++)
 		{
 			if ( sign > 0 ){
 				originalValue /= values[index].numberOfNextUnit;
 			}
 			else {
-				originalValue *= values[index].numberOfNextUnit;
+				originalValue *= values[index].numberOfPreviousUnit;
 			}
 			index += sign;
 		}
