@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="htt://www.thymeleaf.org">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="htt://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 <title>Brian's Converter</title>
@@ -7,8 +8,11 @@
 <body>
 <h1>Welcome to Brian's Converter</h1>
 	<form th:action="@{/runConversion}">
+	Output of listOfUnitsToConvertFrom: <th th:text="${listOfUnitsToConvertFrom}"/><br></br>
 		Units to convert from: <input type="number" name="numberOfUnitsToConvertFrom"/>
-		 <select name="listOfUnitsToConvertFrom">
+		
+		 <select name="listOfUnitsToConvertFrom" th:value="${listOfUnitsToConvertFrom}">
+		 	<th:each="unit : ${Consts.LengthUnits}">
 			<option value="Inches">inches</option>
 			<option value="Feet">feet</option>
 		</select>

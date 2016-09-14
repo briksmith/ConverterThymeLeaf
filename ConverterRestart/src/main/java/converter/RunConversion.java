@@ -30,6 +30,7 @@ public class RunConversion
 		Unit unitsTo = new Unit(1, typeOfUnitToConvertTo, UnitType.length);
 		double result = LengthUnits.Convert(unitsFrom, unitsTo);
 		map.addAttribute(Consts.RESULT, result);
+		map.addAttribute(Consts.LIST_OF_UNITS_TO_CONVERT_FROM ,unitsFrom.getUnitOfMeasure());
 		return Consts.HELLO;
 	}
 }
