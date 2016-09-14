@@ -14,16 +14,21 @@ public class ConverterHome
 {
 	
 	private static boolean runInit = true;
+	private static List<String> units;
+	
+	static
+	{
+		units = new ArrayList<>();
+		for ( String s: Consts.LENGTH_UNITS_LIST){
+			units.add(s);
+		}
+	}
 	
 	@RequestMapping("/Converter")
 	public String convert(ModelMap map)
 	{
 		if ( runInit )
 		{
-			List<String> units = new ArrayList<>();
-			for ( String s: Consts.LENGTH_UNITS_LIST){
-				units.add(s);
-			}
 			map.addAttribute(Consts.LENGTH_UNITS, units);
 		}
 		runInit = false;
