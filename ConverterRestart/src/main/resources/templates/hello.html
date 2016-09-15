@@ -1,4 +1,4 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<!DOCTYPE html>
 <html	xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="htt://www.thymeleaf.org">
 <head>
@@ -12,9 +12,8 @@
 		Units to convert from: <input type="number" name="numberOfUnitsToConvertFrom"/>
 		
 		 <select name="listOfUnitsToConvertFrom" th:value="${listOfUnitsToConvertFrom}">
-		 	<th:each="unit : ${Consts.LengthUnits}">
-			<option value="Inches">inches</option>
-			<option value="Feet">feet</option>
+			<option value="Inches">Inches</option>
+			<option value="Feet">Feet</option>
 		</select>
 		Units to convert to: <select name="listOfUnitsToConvertTo">
 			<option value="Inches">inches</option>
@@ -24,5 +23,13 @@
 		<br></br>
 		<input type="submit" value="Convert"/>
 	</form>
+	 
+  	<tr th:each="unit : #{length_units}">
+		<td th:text="${unit}"> </td>
+		</tr> 
+		
+		
+	
+	
 </body>
 </html>
