@@ -18,27 +18,31 @@ public class RunConversion
 	@RequestMapping("/runConversion")
 	public String runConversion(HttpServletRequest request, ModelMap map)
 	{
-
-		String stringOfNumberOfUnitsToConvertFrom = request.getParameter(Consts.NUMBER_OF_UNITS_TO_CONVERT_FROM);
-		String typeOfUnitToConvertFrom = request.getParameter(Consts.LIST_OF_UNITS_TO_CONVERT_FROM);
-		String typeOfUnitToConvertTo = request.getParameter(Consts.LIST_OF_UNITS_TO_CONVERT_TO);
-		boolean validNumberOfUnits = verifyInput(stringOfNumberOfUnitsToConvertFrom);
-		boolean validTypeOfUnitToConvertFrom = verifyInput(typeOfUnitToConvertFrom);
-		boolean validTypeOfUnitToConvertTo = verifyInput(typeOfUnitToConvertTo);
-		if (validNumberOfUnits == false ||
-			validTypeOfUnitToConvertFrom == false ||
-			validTypeOfUnitToConvertTo == false	)
+		UnitsInformation units = new UnitsInformation(request);
+		
+		boolean validNumberOfUnits = verifyInput(units.getNumberOfUnitsToConvertFrom());
+		boolean validTypeOfUnitToConvertFrom = verifyInput(units.getTypeOfUnitToConvertFrom());
+		boolean validTypeOfUnitToConvertTo = verifyInput(units.getTypeOfUnitToConvertTo());
+		if (checkIfAllInputsAreValid(validNumberOfUnits, validTypeOfUnitToConvertFrom, validTypeOfUnitToConvertTo)	)
 		{
 			return Consts.HELLO;
 		}
-		double numberOfUnitsToConvertFrom = Double.parseDouble(stringOfNumberOfUnitsToConvertFrom);
+		double numberOfUnitsToConvertFrom = Double.parseDouble(units.getNumberOfUnitsToConvertFrom() );
 
-		Unit unitsFrom = new Unit(numberOfUnitsToConvertFrom, typeOfUnitToConvertFrom, UnitType.length);
-		Unit unitsTo = new Unit(1, typeOfUnitToConvertTo, UnitType.length);
+		Unit unitsFrom = new Unit(numberOfUnitsToConvertFrom, units.getTypeOfUnitToConvertFrom(), UnitType.length);
+		Unit unitsTo = new Unit(1, units.getTypeOfUnitToConvertTo(), UnitType.length);
 		double result = LengthUnits.Convert(unitsFrom, unitsTo);
 		map.addAttribute(Consts.RESULT, result);
 		map.addAttribute(Consts.LIST_OF_UNITS_TO_CONVERT_FROM, unitsFrom.getUnitOfMeasure());
 		return Consts.HELLO;
+	}
+
+	private boolean checkIfAllInputsAreValid(boolean validNumberOfUnits, boolean validTypeOfUnitToConvertFrom,
+			boolean validTypeOfUnitToConvertTo)
+	{
+		return validNumberOfUnits == false ||
+			validTypeOfUnitToConvertFrom == false ||
+			validTypeOfUnitToConvertTo == false;
 	}
 
 	public static boolean verifyInput(String inString)
