@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 <title>Brian's Converter</title>
+
 </head>
 <body>
 <h1>Welcome to Brian's Converter</h1>
@@ -12,8 +13,9 @@
 		Units to convert from: <input type="number" name="numberOfUnitsToConvertFrom"/>
 		
 		 <select name="listOfUnitsToConvertFrom" th:value="${listOfUnitsToConvertFrom}">
-			<option value="Inches">Inches</option>
-			<option value="Feet">Feet</option>
+		 	<th:script type="text/javascript" th:src="@{addOptions.js}"></th:script>
+	<!-- 	<option value="Inches">Inches</option>
+			<option value="Feet">Feet</option> -->
 		</select>
 		Units to convert to: <select name="listOfUnitsToConvertTo">
 			<option value="Inches">inches</option>
@@ -21,11 +23,12 @@
 			</select>
 		Result: <th th:text="${result}"/>
 		<br></br>
-		<input type="submit" value="Convert"/>
+		<input type="submit" value="Convert" onsubmit="@{addOptions.js}"/>
 	</form>
 	 
   	<tr th:each="unit : #{length_units}">
 		<td th:text="${unit}"> </td>
 		</tr> 
+	
 </body>
 </html>
