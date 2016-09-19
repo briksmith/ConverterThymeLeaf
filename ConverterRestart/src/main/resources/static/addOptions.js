@@ -15,7 +15,7 @@ function echo(item, index) {
 }
 
 function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
-	var lengthUnits = [ "inches", "feet", "yards" ];
+	var lengthUnits = [ "Inches", "Feet", "Yards" ];
 	for (i = 0; i < arguments.length; i++) {
 		var optionList = document.getElementById(arguments[i]);
 		console.log(lengthUnits);
