@@ -6,16 +6,15 @@
 <title>Brian's Converter</title>
 
 </head>
-<body>
+<script  src="addOptions.js"></script>
+<body onload="addOption_list()">
 <h1>Welcome to Brian's Converter</h1>
+
 	<form th:action="@{/runConversion}">
 	Output of listOfUnitsToConvertFrom: <th th:text="${listOfUnitsToConvertFrom}"/><br></br>
 		Units to convert from: <input type="number" name="numberOfUnitsToConvertFrom"/>
 		
-		 <select name="listOfUnitsToConvertFrom" th:value="${listOfUnitsToConvertFrom}">
-		 	<th:script type="text/javascript" th:src="@{addOptions.js}"></th:script>
-	<!-- 	<option value="Inches">Inches</option>
-			<option value="Feet">Feet</option> -->
+		 <select name="listOfUnitsToConvertFrom" th:value="${listOfUnitsToConvertFrom}" id="listOfUnitsToConvertFrom">
 		</select>
 		Units to convert to: <select name="listOfUnitsToConvertTo">
 			<option value="Inches">inches</option>
@@ -23,12 +22,7 @@
 			</select>
 		Result: <th th:text="${result}"/>
 		<br></br>
-		<input type="submit" value="Convert" onsubmit="@{addOptions.js}"/>
+		<input type="submit" value="Convert" />
 	</form>
-	 
-  	<tr th:each="unit : #{length_units}">
-		<td th:text="${unit}"> </td>
-		</tr> 
-	
 </body>
 </html>
