@@ -2,25 +2,31 @@
  * 
  */
 
-function addOption(Selectbox, Text, Value)
-{
+
+function addOption(Selectbox, Text, Value) {
 	var optn = document.createElement("OPTION");
 	optn.text = Text;
 	optn.value = Value;
 	Selectbox.options.add(optn);
 }
 
-function addOption_list(){
-	var optionList = document.getElementById("listOfUnitsToConvertFrom");
-	var units = ["inches", "feet", "yards"];
-	console.log(units);
-	console.log(optionList);
-	for ( var i = 0; i < units.length; i++) {
-		addOption(optionList, units[i], units[i]);
+function echo(item, index) {
+	console.log(item);
+}
+
+function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
+	var lengthUnits = [ "inches", "feet", "yards" ];
+	for (i = 0; i < arguments.length; i++) {
+		var optionList = document.getElementById(arguments[i]);
+		console.log(lengthUnits);
+		console.log(optionList);
+		for (var j = 0; j < lengthUnits.length; j++) {
+			addOption(optionList, lengthUnits[j], lengthUnits[j]);
+		}
 	}
 }
 
-function test(){
+function test() {
 	console.log("test");
 	return "test";
 }
