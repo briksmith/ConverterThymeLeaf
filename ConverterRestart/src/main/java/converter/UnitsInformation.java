@@ -11,36 +11,39 @@ public class UnitsInformation
 	private String typeOfUnitToConvertFrom;
 	private String typeOfUnitToConvertTo;
 
-	UnitsInformation(HttpServletRequest inRequest){
+	UnitsInformation(HttpServletRequest inRequest)
+	{
 		numberOfUnitsToConvertFrom = inRequest.getParameter(Consts.NUMBER_OF_UNITS_TO_CONVERT_FROM);
 		typeOfUnitToConvertFrom = inRequest.getParameter(Consts.LIST_OF_UNITS_TO_CONVERT_FROM);
 		typeOfUnitToConvertTo = inRequest.getParameter(Consts.LIST_OF_UNITS_TO_CONVERT_TO);
 	}
 
-	public boolean validateAllInformation() {
-		
-		if ( validateNumberOfUnitsToConvertTo() == false ){
-			return false;
-		} else if ( validateTypeOfUnitToConvertFrom() == false ) {
-			return false;
-		} else if ( validateTypeOfUnitToConvertTo() == false ) {
-			return false;
+	public boolean validateAllInformation()
+	{
+
+		if (validateNumberOfUnitsToConvertTo() && validateTypeOfUnitToConvertFrom()
+				&& validateTypeOfUnitToConvertTo())
+		{
+			return true;
 		}
-		return true;
+		return false;
 	}
-	
-	private boolean validateNumberOfUnitsToConvertTo(){
+
+	private boolean validateNumberOfUnitsToConvertTo()
+	{
 		return Methods.verifyString(numberOfUnitsToConvertFrom);
 	}
-	
-	private boolean validateTypeOfUnitToConvertFrom() {
+
+	private boolean validateTypeOfUnitToConvertFrom()
+	{
 		return Methods.verifyString(typeOfUnitToConvertFrom);
 	}
-	
-	private boolean validateTypeOfUnitToConvertTo() {
+
+	private boolean validateTypeOfUnitToConvertTo()
+	{
 		return Methods.verifyString(typeOfUnitToConvertTo);
 	}
-	
+
 	public String getNumberOfUnitsToConvertFrom()
 	{
 		return numberOfUnitsToConvertFrom;
