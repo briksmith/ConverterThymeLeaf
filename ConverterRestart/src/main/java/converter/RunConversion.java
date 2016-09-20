@@ -20,10 +20,7 @@ public class RunConversion
 	{
 		UnitsInformation units = new UnitsInformation(request);
 		
-		boolean validNumberOfUnits = verifyInput(units.getNumberOfUnitsToConvertFrom());
-		boolean validTypeOfUnitToConvertFrom = verifyInput(units.getTypeOfUnitToConvertFrom());
-		boolean validTypeOfUnitToConvertTo = verifyInput(units.getTypeOfUnitToConvertTo());
-		if (checkIfAllInputsAreValid(validNumberOfUnits, validTypeOfUnitToConvertFrom, validTypeOfUnitToConvertTo)	)
+		if ( !verifyUnits(units) )
 		{
 			return Consts.HELLO;
 		}
@@ -36,25 +33,9 @@ public class RunConversion
 		map.addAttribute(Consts.LIST_OF_UNITS_TO_CONVERT_FROM, unitsFrom.getUnitOfMeasure());
 		return Consts.HELLO;
 	}
-
-	private boolean checkIfAllInputsAreValid(boolean validNumberOfUnits, boolean validTypeOfUnitToConvertFrom,
-			boolean validTypeOfUnitToConvertTo)
-	{
-		return validNumberOfUnits == false ||
-			validTypeOfUnitToConvertFrom == false ||
-			validTypeOfUnitToConvertTo == false;
+	
+	private boolean verifyUnits(UnitsInformation inUnits){
+		return inUnits.validateAllInformation();
 	}
 
-	public static boolean verifyInput(String inString)
-	{
-		if (inString == null)
-		{
-			return false;
-		}
-		if (inString.isEmpty())
-		{
-			return false;
-		}
-		return true;
-	}
 }

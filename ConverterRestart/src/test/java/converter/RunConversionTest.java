@@ -174,25 +174,4 @@ public class RunConversionTest
 		assertTrue("Model map should've had .25 as it's answer and did not.  Was: " + result, .25 == result);
 	}
 	
-	@Test
-	public void testVerifyInputEmptyString(){
-		String test = "";
-		boolean output = RunConversion.verifyInput(test);
-		assertFalse("Should return false for empty string and does not.", output);
-	}
-	
-	@Test
-	public void testVerifyNullString() {
-		String test = null;
-		boolean output = RunConversion.verifyInput(test);
-		assertFalse("Should return false for null string and does not.", output);
-	}
-	
-	@Test
-	public void testVerifyGoodString() {
-		String test = "test";
-		boolean output = RunConversion.verifyInput(test);
-		assertTrue("Should return true for non null non empty string and does not.", output);
-	}
-	
 }
