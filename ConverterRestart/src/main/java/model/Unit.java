@@ -44,4 +44,9 @@ public class Unit
 		this.number = number;
 	}
 
+	public UnitType getUnitType()
+	{
+		return unitType;
+	}
+
 }

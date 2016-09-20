@@ -8,6 +8,7 @@ public class Consts
 {
 	private Consts() {};
 	
+	public static final int NUMBER_OF_UNITS_TO_CONVERT_TO = 1;
 	public static final String HELLO = "hello";
 	public static final String NUMBER_OF_UNITS_TO_CONVERT_FROM = "numberOfUnitsToConvertFrom";
 	public static final String LIST_OF_UNITS_TO_CONVERT_TO = "listOfUnitsToConvertTo";
