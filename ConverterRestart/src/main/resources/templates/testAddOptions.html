@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>QUnit basic example</title>
+<link rel="stylesheet"
+	href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
+	<script src="../static/jsmockito-1.0.4.js"></script>
+	<script src="../static/addOptions.js"></script>
+	<script>
+		QUnit.test("test find selected button", function(assert) {
+			
+			
+			var result = findSelectedUnitButton();
+			assert.equal(result, "Area",
+					"Expected to find list of Area units and did not.");
+
+		});
+	</script>
+	<script>
+		QUnit.test("test array mocking", function(assert) {
+
+			var mockedArray = mock(Array);
+			mockedArray.push("test");
+			
+			testPushToArray();
+			
+		});
+	</script>
+</body>
+</html>
