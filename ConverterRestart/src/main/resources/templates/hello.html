@@ -10,8 +10,17 @@
 <body onload="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')">
 <h1>Welcome to Brian's Converter</h1>
 
+<form id="unitButtons">
+<input type="radio" name="UnitType" value="Length" checked="checked" id="Length"/>Length
+	<input type="radio" name="UnitType" value="Area" id="Area"/>Area
+	<input type="radio" name="UnitType" value="Volume" id="Volume"/>Volume
+	<input type="radio" name="UnitType" value="Temporal" id="Temporal"/>Temporal
+</form>
+	<br></br>
 	<form th:action="@{/runConversion}">
 	Output of listOfUnitsToConvertFrom: <th th:text="${listOfUnitsToConvertFrom}"/><br></br>
+	
+	
 		Units to convert from: <input type="number" name="numberOfUnitsToConvertFrom"/>
 		
 		 <select name="listOfUnitsToConvertFrom" th:value="${listOfUnitsToConvertFrom}" id="listOfUnitsToConvertFrom">

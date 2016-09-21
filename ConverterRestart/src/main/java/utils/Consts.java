@@ -14,8 +14,9 @@ public class Consts
 	public static final String LIST_OF_UNITS_TO_CONVERT_TO = "listOfUnitsToConvertTo";
 	public static final String LIST_OF_UNITS_TO_CONVERT_FROM = "listOfUnitsToConvertFrom";
 	public static final String RESULT = "result";
-	public static final String INCHES = "inches";
-	public static final String FEET = "feet";
+	public static final String INCHES = "Inches";
+	public static final String FEET = "Feet";
+	public static final String YARDS = "Yards";
 	public static final String LENGTH_UNITS = "length_units";
 	public static final List<String> LENGTH_UNITS_LIST =  Arrays.asList(INCHES, FEET);
 }
