@@ -12,7 +12,7 @@ public class UnitsInformation
 	private String numberOfUnitsToConvertFrom;
 	private String typeOfUnitToConvertFrom;
 	private String typeOfUnitToConvertTo;
-	private UnitType unitType = UnitType.length;
+	private UnitType unitType = UnitType.Length;
 
 	UnitsInformation(HttpServletRequest inRequest)
 	{

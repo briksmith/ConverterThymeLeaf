@@ -11,7 +11,7 @@ public enum LengthUnits
 
 	private int numberOfNextUnit;
 	private int numberOfPreviousUnit;
-	private static UnitType unitType = UnitType.length;
+	private static UnitType unitType = UnitType.Length;
 
 	public int getNumberOfNextUnit()
 	{

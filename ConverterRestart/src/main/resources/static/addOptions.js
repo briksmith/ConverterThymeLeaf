@@ -16,24 +16,22 @@ function echo(item, index) {
 
 function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
 	var lengthUnits = [ "Inches", "Feet", "Yards" ];
+	var areaUnits = ["Square Inches", "Square Feet", "Square Yards"];
+	var typeOfUnit = findSelectedUnitButton();
 	
-	var selected;
-	for(var i = 0; i < unitTypes.length; i++){
-		var button = document.getElementById(unitTypes[i]);
-		console.log(button);
-		if ( button.checked="checked"){
-			selected = button;
-		}
-	}
-	console.log(selected);
-	var unitType = document.getElementById("unitButtons");
-	console.log(unitType);
+	console.log( typeOfUnit.value);
+	
 	for (i = 0; i < arguments.length; i++) {
 		var optionList = document.getElementById(arguments[i]);
-		console.log(lengthUnits);
-		console.log(optionList);
 		for (var j = 0; j < lengthUnits.length; j++) {
+			switch(typeOfUnit.value){
+			case "Length" :
+				addOption(optionList, lengthUnits[j], lengthUnits[j]);
+				break;
+			case "Area" :
 			addOption(optionList, lengthUnits[j], lengthUnits[j]);
+			break;
+		}
 		}
 	}
 }
@@ -41,7 +39,6 @@ function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
 function findSelectedUnitButton() {
 	
 	var unitTypes = [ "Length", "Area", "Volume", "Temporal"];
-	
 	
 	for(var i = 0; i < unitTypes.length; i++){
 		var button = document.getElementById(unitTypes[i]);

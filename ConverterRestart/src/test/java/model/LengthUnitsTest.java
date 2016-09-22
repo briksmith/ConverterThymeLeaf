@@ -79,8 +79,8 @@ public class LengthUnitsTest
 	@Test
 	public void testYardsToInches()
 	{
-		Unit from = new Unit(3, "Yards", UnitType.length);
-		Unit to = new Unit(1, "Inches", UnitType.length);
+		Unit from = new Unit(3, "Yards", UnitType.Length);
+		Unit to = new Unit(1, "Inches", UnitType.Length);
 		double result = from.Convert(to);
 
 		assertTrue("Expected 3 yards to be 108 inches, and it was not.  Was: " + result, 108.0 == result);
@@ -89,8 +89,8 @@ public class LengthUnitsTest
 	@Test
 	public void testInchesToYards()
 	{
-		Unit from = new Unit(45, "Inches", UnitType.length);
-		Unit to = new Unit(1, "Yards", UnitType.length);
+		Unit from = new Unit(45, "Inches", UnitType.Length);
+		Unit to = new Unit(1, "Yards", UnitType.Length);
 		double result = from.Convert(to);
 		assertTrue("Expected 45 inches to be 1.25 yards, and it was not.  Was: " + result, 1.25 == result);
 	}
@@ -99,8 +99,8 @@ public class LengthUnitsTest
 	public void testYardsToFeet()
 	{
 		final double expected = 36;
-		Unit from = new Unit(12, Consts.YARDS, UnitType.length);
-		Unit to = new Unit(Consts.NUMBER_OF_UNITS_TO_CONVERT_TO, Consts.FEET, UnitType.length);
+		Unit from = new Unit(12, Consts.YARDS, UnitType.Length);
+		Unit to = new Unit(Consts.NUMBER_OF_UNITS_TO_CONVERT_TO, Consts.FEET, UnitType.Length);
 		double result = from.Convert(to);
 		assertTrue(errorMessage(from, to, expected, result), expected == result);
 	}
@@ -114,8 +114,8 @@ public class LengthUnitsTest
 	@Test
 	public void testSameUnit()
 	{
-		Unit from = new Unit(3, "Yards", UnitType.length);
-		Unit to = new Unit(1, "Yards", UnitType.length);
+		Unit from = new Unit(3, "Yards", UnitType.Length);
+		Unit to = new Unit(1, "Yards", UnitType.Length);
 		double result = from.Convert(to);
 
 		assertTrue("Expected 3 yards to be 3 yards, and it was not.  Was: " + result, 3 == result);
