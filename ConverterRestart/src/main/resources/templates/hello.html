@@ -11,12 +11,14 @@
 	<h1>Welcome to Brian's Converter</h1>
 
 	<form id="unitButtons">
-		<input type="radio" name="UnitType" value="Length" id="Length" checked ="checked"
+		<input type="radio" name="UnitType" value="LENGTH" id="LENGTH" checked ="checked"
 			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')" />Length
-		<input type="radio" name="UnitType" value="Area" id="Area"
-		onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')"/>Area <input
-			type="radio" name="UnitType" value="Volume" id="Volume" />Volume <input
-			type="radio" name="UnitType" value="Temporal" id="Temporal" />Temporal
+		<input type="radio" name="UnitType" value="AREA" id="AREA"
+		onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')"/>Area 
+		<input type="radio" name="UnitType" value="VOLUME" id="VOLUME" 
+			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')"/>Volume 
+		<input type="radio" name="UnitType" value="TEMPORAL" id="TEMPORAL" 
+			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')"/>Temporal
 	</form>
 	<br></br>
 	<form th:action="@{/runConversion}">

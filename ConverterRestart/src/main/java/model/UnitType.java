@@ -2,8 +2,8 @@ package model;
 
 public enum UnitType
 {
-	Length,
-	Area,
-	Volume,
-	Temperal;
+	LENGTH,
+	AREA,
+	VOLUME,
+	TEMPERAL;
 }

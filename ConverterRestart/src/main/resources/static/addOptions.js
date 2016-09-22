@@ -27,10 +27,10 @@ function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
 		flushOptionList(optionList);
 		for (var j = 0; j < lengthUnits.length; j++) {
 			switch(typeOfUnit.value){
-			case "Length" :
+			case "LENGTH" :
 				addOption(optionList, lengthUnits[j], lengthUnits[j]);
 				break;
-			case "Area" :
+			case "AREA" :
 			addOption(optionList, areaUnits[j], areaUnits[j]);
 			break;
 		}
@@ -40,7 +40,7 @@ function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
 
 function findSelectedUnitButton() {
 	
-	var unitTypes = [ "Length", "Area", "Volume", "Temporal"];
+	var unitTypes = [ "LENGTH", "AREA", "VOLUME", "TEMPORAL"];
 	
 	for(var i = 0; i < unitTypes.length; i++){
 		var button = document.getElementById(unitTypes[i]);
