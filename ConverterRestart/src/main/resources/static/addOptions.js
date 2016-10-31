@@ -1,7 +1,10 @@
 /**
  * 
  */
-
+var lengthUnits = [ "Inches", "Feet", "Yards" ];
+	var areaUnits = ["Square Inches", "Square Feet", "Square Yards"];
+	var volumeUnits = ["Cubic Inches", "Cubic Feet", "Cubic Yards"];
+	var temporalUnits = ["MilliSeconds", "Seconds", "Minutes", "Hours", "Days"];
 
 function addOption(Selectbox, Text, Value) {
 	var optn = document.createElement("OPTION");
@@ -15,8 +18,6 @@ function echo(item, index) {
 }
 
 function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
-	var lengthUnits = [ "Inches", "Feet", "Yards" ];
-	var areaUnits = ["Square Inches", "Square Feet", "Square Yards"];
 	console.log("in addOptions for dialog");
 	var typeOfUnit = findSelectedUnitButton();
 	
@@ -33,6 +34,11 @@ function addOptionsForDialog(UnitsToConvertFrom, UnitsToConvertTo) {
 			case "AREA" :
 			addOption(optionList, areaUnits[j], areaUnits[j]);
 			break;
+			case "VOLUME":
+			addOption(optionList, volumeUnits[j], volumeUnits[j]);
+			break;
+			case "TEMPORAL":
+			addOption(optionList, temporalUnits[j], temporalUnits[j]);
 		}
 		}
 	}

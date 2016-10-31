@@ -1,5 +1,7 @@
 package converter;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -18,7 +20,7 @@ public class RunConversion
 	private Unit unitsTo;
 	
 	@RequestMapping("/runConversion")
-	public String runConversion(HttpServletRequest request, ModelMap map)
+	public String runConversion(HttpServletRequest request, HttpServletResponse response, ModelMap map)
 	{
 		UnitsInformation unitsInformation = new UnitsInformation(request);
 		

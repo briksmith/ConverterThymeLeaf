@@ -12,6 +12,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.*;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.ui.ModelMap;
 import org.powermock.core.classloader.annotations.*;
 import org.powermock.api.mockito.*;
@@ -25,8 +28,8 @@ import utils.Consts;
 public class RunConversionTest
 {
 
-	@Mock
-	HttpServletRequest request;
+	@Mock HttpServletRequest request;
+	HttpServletResponse response;
 	RunConversion systemUnderTest;
 
 	@Before
@@ -52,7 +55,7 @@ public class RunConversionTest
 		ModelMap map = new ModelMap();
 		try
 		{
-			String returnString = systemUnderTest.runConversion(request, map);
+			String returnString = systemUnderTest.runConversion(request, null, map);
 			verifyNullOrEmptyConditions(returnString, map);
 		}
 		catch (Exception e)
@@ -71,7 +74,7 @@ public class RunConversionTest
 		ModelMap map = new ModelMap();
 		try
 		{
-			String returnString = systemUnderTest.runConversion(request, map);
+			String returnString = systemUnderTest.runConversion(request, null, map);
 			verifyNullOrEmptyConditions(returnString, map);
 		}
 		catch (Exception e)
@@ -90,7 +93,7 @@ public class RunConversionTest
 		ModelMap map = new ModelMap();
 		try
 		{
-			String returnString = systemUnderTest.runConversion(request, map);
+			String returnString = systemUnderTest.runConversion(request, null, map);
 			verifyNullOrEmptyConditions(returnString, map);
 		}
 		catch (Exception e)
@@ -109,7 +112,7 @@ public class RunConversionTest
 		ModelMap map = new ModelMap();
 		try
 		{
-			String returnString = systemUnderTest.runConversion(request, map);
+			String returnString = systemUnderTest.runConversion(request, null, map);
 			verifyNullOrEmptyConditions(returnString, map);
 		}
 		catch (Exception e)
@@ -128,7 +131,7 @@ public class RunConversionTest
 		ModelMap map = new ModelMap();
 		try
 		{
-			String returnString = systemUnderTest.runConversion(request, map);
+			String returnString = systemUnderTest.runConversion(request, null, map);
 			verifyNullOrEmptyConditions(returnString, map);
 		}
 		catch (Exception e)
@@ -147,7 +150,7 @@ public class RunConversionTest
 		ModelMap map = new ModelMap();
 		try
 		{
-			String returnString = systemUnderTest.runConversion(request, map);
+			String returnString = systemUnderTest.runConversion(request, null, map);
 			verifyNullOrEmptyConditions(returnString, map);
 		}
 		catch (Exception e)
@@ -166,7 +169,7 @@ public class RunConversionTest
 		PowerMockito.mockStatic(LengthUnits.class);
 		when(LengthUnits.Convert(any(), any())).thenReturn(.25);
 		ModelMap map = new ModelMap();
-		String returnString = systemUnderTest.runConversion(request, map);
+		String returnString = systemUnderTest.runConversion(request, null, map);
 		assertEquals("Return string should've been hello and was not.  Was: " + returnString, Consts.HELLO,
 				returnString);
 		double result = (double) map.get(Consts.RESULT);
