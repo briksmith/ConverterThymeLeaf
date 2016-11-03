@@ -31,7 +31,7 @@ public class RunConversion
 
 		constructUnits(unitsInformation);
 		double result = convertUnits();
-		populateMap(map, result);
+		populateModel(map, result);
 		return Consts.HELLO;
 	}
 
@@ -49,7 +49,7 @@ public class RunConversion
 		return LengthUnits.Convert(unitsFrom, unitsTo);
 	}
 
-	private void populateMap(ModelMap map, double result)
+	private void populateModel(ModelMap map, double result)
 	{
 		map.addAttribute(Consts.RESULT, result);
 		map.addAttribute(Consts.LIST_OF_UNITS_TO_CONVERT_FROM, unitsFrom.getUnitOfMeasure());

@@ -7,31 +7,31 @@
 </head>
 <script src="addOptions.js"></script>
 
-<body onload="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')">
+<body
+	onload="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo', 'result')">
 	<h1>Welcome to Brian's Converter</h1>
 
-	<form id="unitButtons">
-		<input type="radio" name="UnitType" value="LENGTH" id="LENGTH" checked ="checked"
+	<form id="unitButtons" th:Object="${buttonInfo}">
+		<input type="radio" name="UnitType" value="LENGTH" id="LENGTH"
 			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')" />Length
 		<input type="radio" name="UnitType" value="AREA" id="AREA"
-		onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')"/>Area 
-		<input type="radio" name="UnitType" value="VOLUME" id="VOLUME" 
-			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')"/>Volume 
-		<input type="radio" name="UnitType" value="TEMPORAL" id="TEMPORAL" 
-			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')"/>Temporal
+			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')" />Area
+		<input type="radio" name="UnitType" value="VOLUME" id="VOLUME"
+			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')" />Volume
+		<input type="radio" name="UnitType" value="TEMPORAL" id="TEMPORAL"
+			onclick="addOptionsForDialog('listOfUnitsToConvertFrom', 'listOfUnitsToConvertTo')" />Temporal
 	</form>
 	<br></br>
 	<form th:action="@{/runConversion}">
 		Output of listOfUnitsToConvertFrom:
-		<th th:text="${listOfUnitsToConvertFrom}" />
-		<br></br> Units to convert from: <input type="number"
-			name="numberOfUnitsToConvertFrom" /> <select
-			name="listOfUnitsToConvertFrom"
+		<th th:text="${listOfUnitsToConvertFrom}" /> <br></br> Units to
+		convert from: <input type="number" name="numberOfUnitsToConvertFrom" />
+		<select name="listOfUnitsToConvertFrom"
 			th:value="${listOfUnitsToConvertFrom}" id="listOfUnitsToConvertFrom">
 		</select> Units to convert to: <select name="listOfUnitsToConvertTo"
 			th:value="${listOfUnitsToConvertTo}" id="listOfUnitsToConvertTo">
 		</select> Result:
-		<th th:text="${result}" /> <br></br> <input type="submit"
+		<th name='result' th:text="${result}" /> <br></br> <input type="submit"
 			value="Convert" />
 	</form>
 </body>

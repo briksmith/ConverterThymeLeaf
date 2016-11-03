@@ -39,10 +39,10 @@ public class RunConversionTest
 		systemUnderTest = new RunConversion();
 	}
 
-	private void verifyNullOrEmptyConditions(String inReturnString, ModelMap inMap)
+	private void verifyNullOrEmptyConditions(String inReturnString, ModelMap map)
 	{
 		assertEquals(Consts.HELLO, inReturnString);
-		assertNull(inMap.get(Consts.RESULT));
+		assertNull(map.get(Consts.RESULT));
 		
 	}
 
